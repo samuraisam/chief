@@ -104,6 +104,12 @@ Currently the only emitter that is shipped with Chief is JSON.
 ##### OAuth 2.0
 ##### Basic Auth
 
+## URL Routing
+
+#### What happens by default?
+
+#### Defining custom routes
+
 [django]: http://djangoproject.com
 [piston]: https://bitbucket.org/jespern/django-piston/wiki/Home
 [tastypie]: http://tastypieapi.org/
