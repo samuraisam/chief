@@ -40,7 +40,7 @@ In `handlers.py`:
 from chief.handler import Handler
 
 class EventHandler(Handler):
-	def read(self):
+	def read(self, key):
 		return {'id': 1, 'message': 'Hello!'}
 ```
 
@@ -50,10 +50,12 @@ from chief.resource import Resource
 from chief.urls import Site
 
 site = Site()
-site.put(Resource('event'))
+site.put(Resource('events'))
 
 urlpatterns = site.patterns()
 ```
+
+That's all the code you need. Firing up the server will offer an `/events/:key` url from which it will return a default response as JSON.
 
 ## Seperation of Concerns
 
@@ -77,10 +79,10 @@ class MyHandler(Handler):
 Multiple versions may be specified for the same handler.
 
 ```python
-class MyHandler_v11(Handler):
+class EventHandler_v11(Handler):
 	version = 1.1
 
-class MyHandler_v12(Handler):
+class EventHandler_v12(Handler):
 	version = 1.2
 ```
 
@@ -93,6 +95,14 @@ By default, if all else fails in trying to find a suitable emitter, Chief will e
 #### Emitters
 
 Currently the only emitter that is shipped with Chief is JSON.
+
+## Authentication
+
+#### How to define authentication for a Resource
+
+##### OAuth 1.0a
+##### OAuth 2.0
+##### Basic Auth
 
 [django]: http://djangoproject.com
 [piston]: https://bitbucket.org/jespern/django-piston/wiki/Home
