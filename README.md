@@ -3,20 +3,31 @@ Chief
 
 A web framework written in Python using [Django][django] for creating web services.
 
-It's similar in spirit to the likes of [Piston][piston] and [TastyPie][tastypie] but is much more lightweight and less focused on automatically scaffolding REST servies to serve as HTTP fronends to Django models.
+It's similar in spirit to the likes of [Piston][piston] and [Tastyie][tastypie]. Chief strives to be more lightweight, simpler to used, and offer features beyond scaffolding HTTP methods in front of Django models. It is designed for the next generation of REST APIs and eschews outdated techniques.
 
-**Conventions followed:**
+**REST Conventions Followed:**
 
 * Versioning is done per-resource using [Semantic Versioning][semver]
 * Resources should not have a trailing slash or an extension
-* Clients select the desired vesrion of a resource and what content-type it should deliver via the `Accept` header using a vendor-specific content types
-* Beyond that it's up to you what kind of API you want to build
+* Use of the `Accept` header to select version and content type
+* Implement the necessary parts to enable [Cross-Origin Resource Sharing (CORS)][cors]
+
+**Developer Conventions Followed:**
+
+* It's up to you what kind of API you want to build
 * Reasonable defaults are provided wherever possible
 * Easy tasks should be easy - hard tasks totally do-able
 
+**Some cool features:**
+
+* Multiple authentication types per resource
+* OAuth1.0a (with XAuth), OAuth 2.0 and HTTP Basic Authentication implementations
+* Very flexible URL routing options
+* Easily support multiple versions of a resource
+
 **Motivation**
 
-I had been using [Piston][piston] for over a year on various projects and finally got fed up with the lack of updates and lock-in to a number of old-fashioned ways of building APIs. In looking at all the other available "REST frameworks" for Django and Python in general (though preferably using Django) they all seemed focused on providing front ends to Django models. While useful for small, simple projects, grown up projects typically will outgrow their humble beginnings and require more sophisticated functionality.
+I had been using [Piston][piston] for quite a while, loving it, but finally outgrew it while working on a larger project. In looking at all the other available "REST frameworks" they all seemed focused on providing front ends to Django models. While useful for small, simple projects, grown up projects typically will outgrow their humble beginnings and require more sophisticated functionality rather quickly.
 
 Gradually, while working on a larger REST application in Python using Django/Piston, I began to extract the bits I wanted changing from Piston into this framework. Therefore, there are some similarities between the two. Primarily in the concept of "Resources" and "Handlers". In fact, porting applications from Piston to Chief should be trivial in most cases.
 
@@ -49,3 +60,4 @@ urlpatterns = site.patterns()
 [piston]: https://bitbucket.org/jespern/django-piston/wiki/Home
 [tastypie]: http://tastypieapi.org/
 [semver]: http://semver.org/
+[cors]: http://www.w3.org/TR/cors/
