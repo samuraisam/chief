@@ -55,11 +55,11 @@ site.put(Resource('event'))
 urlpatterns = site.patterns()
 ```
 
-### Seperation of Concerns
+## Seperation of Concerns
 
 #### Give a helping hand
 
-### Versioning
+## Versioning
 
 #### Default Version
 
@@ -84,7 +84,7 @@ class MyHandler_v12(Handler):
 	version = 1.2
 ```
 
-### Content Types
+## Content Types
 
 #### Default Content Type
 
